@@ -1,0 +1,28 @@
+import { Request, Response, NextFunction } from "express"
+import jwt from "jsonwebtoken"
+
+export const authMiddleware = (req : Request, res : Response, next : NextFunction) => {
+    try {
+        const header = req.headers.authorization;
+        
+        if (!header || !header.startsWith("Bearer ")) {
+            return res.status(401).json({ message: "로그인이 필요합니다." });
+        }
+
+        const token = header.split(" ")[1];
+
+        try {
+            const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_KEY as string) as { id: number };
+            req.user = decoded.id;
+            next();
+
+        } catch (error) {
+            return res.status(403).json({ message: "Access Token이 만료되었습니다." });
+        }
+
+        next();
+    } catch (error) {
+        return res.status(403).json({ message: "Access Token이 만료되었습니다." });
+    }
+
+}
