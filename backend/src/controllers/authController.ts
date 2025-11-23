@@ -20,3 +20,13 @@ export const loginController = async (req : Request, res : Response) => {
         res.status(400).json({ message: error });
     }
 }
+
+export const refreshController = async (req : Request, res : Response) => {
+    try {
+        const { refreshToken } = req.body;
+        const accessToken = await refreshToken(refreshToken);
+        res.status(200).json({ message: "accessToken 발급", accessToken });
+    } catch (error) {
+        res.status(400).json({ message : error })
+    }
+}

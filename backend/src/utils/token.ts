@@ -9,5 +9,5 @@ export const generateRefreshToken = (userId : number) => {
 }
 
 export const verifyRefreshToken = (token : string) => {
-    return jwt.verify(token, process.env.REFRESH_TOKEN_KEY as string);
+    return jwt.verify(token, process.env.REFRESH_TOKEN_KEY as string) as { id: number };;
 }

@@ -1,6 +1,6 @@
 import User from "../models/User"
 import bcrypt from "bcrypt"
-import { generateAccessToken, generateRefreshToken } from "../utils/token";
+import { generateAccessToken, generateRefreshToken, verifyRefreshToken } from "../utils/token";
 import Token from "../models/Token";
 
 export const signupService = async (email : string, password : string) => {
@@ -28,3 +28,14 @@ export const loginService = async (email: string, password : string) => {
     return { user, accessToken, refreshToken };
 }
 
+export const refreshAccessToken = async (refreshToken: string) => {
+  const decoded = verifyRefreshToken(refreshToken);
+  const userId = decoded.id;
+
+  const token = await Token.findOne({ where: { userId } });
+  if (!token || token.refresh_token !== refreshToken)
+    throw new Error("Refresh Token이 유효하지 않습니다.");
+
+  const newAccessToken = generateAccessToken(userId);
+  return newAccessToken;
+};
