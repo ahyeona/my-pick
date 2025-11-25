@@ -7,3 +7,5 @@ interface authProps {
 
 export const loginApi = (data: authProps) => baseAxios.post("/auth/login", data);
 export const signupApi = (data: authProps) => baseAxios.post("/auth/signup", data);
+export const refreshApi = () => baseAxios.get("/auth/refresh");
+export const profileApi = () => baseAxios.get("/auth/profile");

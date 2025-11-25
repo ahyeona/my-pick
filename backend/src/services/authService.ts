@@ -33,9 +33,15 @@ export const refreshAccessToken = async (refreshToken: string) => {
   const user_id = decoded.id;
 
   const token = await Token.findOne({ where: { user_id } });
+  console.log("token", token);
   if (!token || token.refresh_token !== refreshToken)
     throw new Error("Refresh Token이 유효하지 않습니다.");
 
   const newAccessToken = generateAccessToken(user_id);
   return newAccessToken;
 };
+
+export const profileService = async (id : number) => {
+  const user = await User.findOne({ where : { id } });
+  return user;
+}

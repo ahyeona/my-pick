@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { loginService, refreshAccessToken, signupService } from "../services/authService";
+import { loginService, profileService, refreshAccessToken, signupService } from "../services/authService";
+import { RequestWithUser } from "../types/express";
 
 export const signupController = async (req : Request, res : Response) => {
     try {
@@ -17,7 +18,7 @@ export const loginController = async (req : Request, res : Response) => {
         const data = await loginService(email, password);
         res.cookie("refreshToken", data.refreshToken, {
             httpOnly: true,
-            // secure: true,    // https 환경에서만 전송
+            secure: false,    // https 환경에서만 전송
             sameSite: "strict",
             path: "/",
         });
@@ -29,10 +30,26 @@ export const loginController = async (req : Request, res : Response) => {
 
 export const refreshController = async (req : Request, res : Response) => {
     try {
-        const { refreshToken } = req.body;
+        console.log("refreshController", refreshController);
+        const { refreshToken } = req.cookies;
+        console.log("refreshToken", refreshToken);
         const accessToken = await refreshAccessToken(refreshToken);
         res.status(200).json({ message: "accessToken 발급", accessToken });
     } catch (error) {
-        res.status(400).json({ message : error })
+        res.status(400).json({ message : "로그인하세요." })
+    }
+}
+
+export const profileController = async (req : RequestWithUser, res : Response) => {
+    const user_id = req.user;
+    if (!user_id) {
+        return res.status(400).json({ message : "로그인하세요." })
+    }
+    
+    try {
+        const user = await profileService(user_id);
+        return res.status(200).json({ message: "user profile", user });
+    } catch (error) {
+        return res.status(400).json({ message : "로그인하세요." })
     }
 }

@@ -20,7 +20,6 @@ export const authMiddleware = (req : RequestWithUser, res : Response, next : Nex
             return res.status(403).json({ message: "Access Token이 만료되었습니다." });
         }
 
-        next();
     } catch (error) {
         return res.status(403).json({ message: "Access Token이 만료되었습니다." });
     }

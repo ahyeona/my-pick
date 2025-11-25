@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 
 const LogoStyle = styled.div`
@@ -14,8 +15,10 @@ const LogoStyle = styled.div`
 `
 
 const Logo = () => {
+    const nav = useNavigate();
+
     const onClick = () => {
-        
+        nav("/");
     }
 
     return (
