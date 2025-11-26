@@ -11,7 +11,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Nav />
-      {user?.email}
+      현재 유저 : {user?.email}
       <Routes>
         <Route path='/' element={<Main />}/>
         <Route path='/mypick' element={<AuthRoute><Mypick /></AuthRoute>}/>

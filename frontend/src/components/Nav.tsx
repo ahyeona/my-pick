@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import styled from 'styled-components'
 import Logo from './Logo'
 import SearchBar from './SearchBar'
@@ -23,7 +23,6 @@ const Nav = ({children} : {children? : ReactNode}) => {
   return (
     <NavStyle>
       <Logo />
-      <SearchBar onChange={()=>{}}/>
       <ThemeToggle />
       { user ? 
         <Button text='logout' width='100px' onClick={()=>{ clearAuth() }} />
