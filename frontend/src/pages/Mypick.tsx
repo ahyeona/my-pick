@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Loading, MovieList } from '../components';
-import { listApi } from '../services/mypickApi';
+import { getMypickApi } from '../services/mypickApi';
 
 const Mypick = () => {
   const [mypicks, setMypicks] = useState([]);
@@ -8,7 +8,7 @@ const Mypick = () => {
 
   const getMypicks = async () => {
       setLoading(true);
-      const { data } = await listApi();
+      const { data } = await getMypickApi();
       setMypicks(data.data);
       setLoading(false);
     };
@@ -20,7 +20,6 @@ const Mypick = () => {
   return (
     <>
       {loading && <Loading />}
-
 
       {!loading && (
         <MovieList caption="mypicks" movies={mypicks} />

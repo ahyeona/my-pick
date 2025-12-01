@@ -15,17 +15,39 @@ export const mypickListService = async (user_id : number) => {
         memo: mypick.memo,
         is_watched: mypick.is_watched,
         movie: {
+            // ...mypick.Movie,
             id: mypick.Movie.id,
             title: mypick.Movie.title,
             poster_path: mypick.Movie.poster_path,
             overview: mypick.Movie.overview,
             release_date: mypick.Movie.release_date,
-            genres: mypick.Movie.Genres
+            genres: mypick.Movie.Genres,
+            // adult: mypick.Movie.adult,
+            // original_language: mypick.Movie.original_language,
+            // original_title: mypick.Movie.original_title,
         }
     }));
 
     return list;
 };
+
+export const mypickDetailService = async (user_id : number, movie_id : number) => {
+    const mypick = await Mypick.findOne({where : {user_id, movie_id}});
+    let result = {
+        isMypick: false,
+        mypick: null
+    };
+
+    if (mypick) {
+        return {
+            isMypick : true,
+            mypick : mypick
+        }
+    }
+    
+    return result;
+} 
+
 
 // export const mypickCreateService = async (user_id : number, movie_id : number, genre_ids : number[], is_watched : boolean, memo : string, title:string, poster_path:string, overview:string, release_date : string) => {
 export const mypickCreateService = async (dto :CreateMypickDTO) => {

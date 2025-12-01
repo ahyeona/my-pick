@@ -7,6 +7,9 @@ export interface CreateMypickDTO {
     overview: string;
     release_date: string;
     genre_ids: number[];
+    adult: boolean;
+    original_language: string;
+    original_title: string;
   };
   is_watched: boolean;
   memo: string;

@@ -9,6 +9,10 @@ class Movie extends Model {
     public overview!: string;
     public release_date!: string;
 
+    public adult!: boolean;
+    public original_language!: string;
+    public original_title!: string;
+
     public Genres!: Genre[];
 
     static initModel(sequelize : Sequelize) {
@@ -29,6 +33,15 @@ class Movie extends Model {
                     type: DataTypes.STRING(500),
                 },
                 release_date : {
+                    type: DataTypes.STRING(200),
+                },
+                adult : {
+                    type: DataTypes.BOOLEAN,
+                },
+                original_language : {
+                    type: DataTypes.STRING(100),
+                },
+                original_title : {
                     type: DataTypes.STRING(200),
                 }
             },

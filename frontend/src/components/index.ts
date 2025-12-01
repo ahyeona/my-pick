@@ -1,6 +1,6 @@
 import Button from "./Button";
 import Input from "./Input";
-import Modal from "./Modal";
+import Modal from "./MovieModal";
 import Nav from "./Nav";
 import SearchBar from "./SearchBar";
 import ThemeToggle from "./ThemeToggle";
