@@ -8,8 +8,8 @@ const InputStyle = styled.input`
   border-radius: 6px;
   padding: 10px;
   display: block;
-  background-color: ${({theme})=> theme.navBg};
-  color: ${({theme})=> theme.buttonText};
+  background-color: ${({ theme }) => theme.navBg};
+  color: ${({ theme }) => theme.buttonText};
   &:focus {
     outline: 0;
   }
@@ -21,13 +21,13 @@ type InputProps = {
   password?: boolean;
 }
 
-const Input = ({onChange, placeholder, password}:InputProps) => {
+const Input = ({ onChange, placeholder, password }: InputProps) => {
   return (
     <InputStyle
-      onChange={(e)=>{onChange(e.target.value)}} 
+      onChange={(e) => { onChange(e.target.value) }}
       placeholder={placeholder}
       type={password ? 'password' : 'text'}
-      />  
+    />
   )
 }
 

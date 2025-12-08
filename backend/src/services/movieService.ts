@@ -16,7 +16,7 @@ export interface MovieApiResult extends MovieResult {
 }
 
 
-export const getMovieList = async (movies : MovieApiResult[]): Promise<MovieResult[]> => {
+export const getMovieList = async (movies: MovieApiResult[]): Promise<MovieResult[]> => {
     const genres = await Genre.findAll();
 
     const genreMap: Record<number, string> = {};

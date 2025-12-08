@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 const ButtonStyle = styled.div`
-  background-color: ${({theme}) => theme.buttonBg};
+  background-color: ${({ theme }) => theme.buttonBg};
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${({theme})=> theme.buttonText};
+  color: ${({ theme }) => theme.buttonText};
   &:hover {
     cursor: pointer;
   }
-` 
+`
 
 type ButtonProps = {
   text?: string;
@@ -19,11 +19,11 @@ type ButtonProps = {
   height?: string;
 };
 
-const Button = ({text, onClick, width="300px", height="40px"} : ButtonProps) => {
+const Button = ({ text, onClick, width = "300px", height = "40px" }: ButtonProps) => {
   return (
-    <ButtonStyle 
-    style={{"width" : width, "height" : height }}
-    onClick={onClick}>{text}</ButtonStyle>
+    <ButtonStyle
+      style={{ "width": width, "height": height }}
+      onClick={onClick}>{text}</ButtonStyle>
   )
 }
 

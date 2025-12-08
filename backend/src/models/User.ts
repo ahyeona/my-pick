@@ -5,32 +5,32 @@ class User extends Model {
     public email!: string;
     public password!: string;
 
-   static initModel(sequelize : Sequelize) {
+    static initModel(sequelize: Sequelize) {
         User.init(
-        {
-            id : {
-                type: DataTypes.INTEGER.UNSIGNED,
-                autoIncrement : true,
-                primaryKey : true
+            {
+                id: {
+                    type: DataTypes.INTEGER.UNSIGNED,
+                    autoIncrement: true,
+                    primaryKey: true
+                },
+                email: {
+                    type: DataTypes.STRING(100),
+                    allowNull: false,
+                    unique: true
+                },
+                password: {
+                    type: DataTypes.STRING(200),
+                    allowNull: false,
+                }
             },
-            email : {
-                type: DataTypes.STRING(100),
-                allowNull : false,
-                unique : true
-            },
-            password : {
-                type: DataTypes.STRING(200),
-                allowNull: false,
+            {
+                sequelize,
+                modelName: "User",
+                tableName: "users",
+                timestamps: true
             }
-        },
-        {
-            sequelize,
-            modelName : "User",
-            tableName : "users",
-            timestamps : true
-        }
-    );
-   }
+        );
+    }
 }
 
 export default User;

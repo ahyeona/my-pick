@@ -5,29 +5,29 @@ class Token extends Model {
     public user_id!: number;
     public refresh_token!: string;
 
-    static initModel(sequelize : Sequelize) {
+    static initModel(sequelize: Sequelize) {
         Token.init(
             {
-                id : {
+                id: {
                     type: DataTypes.INTEGER.UNSIGNED,
-                    autoIncrement : true,
-                    primaryKey : true
+                    autoIncrement: true,
+                    primaryKey: true
                 },
-                user_id : {
+                user_id: {
                     type: DataTypes.INTEGER.UNSIGNED,
-                    allowNull : false,
+                    allowNull: false,
                     unique: true
                 },
-                refresh_token : {
+                refresh_token: {
                     type: DataTypes.STRING(500),
                     allowNull: false,
                 }
             },
             {
                 sequelize,
-                modelName : "Token",
-                tableName : "tokens",
-                timestamps : true
+                modelName: "Token",
+                tableName: "tokens",
+                timestamps: true
             }
         );
     }

@@ -2,10 +2,10 @@ import { Response, NextFunction } from "express"
 import jwt from "jsonwebtoken"
 import { RequestWithUser } from "../types/express";
 
-export const authMiddleware = (req : RequestWithUser, res : Response, next : NextFunction) => {
+export const authMiddleware = (req: RequestWithUser, res: Response, next: NextFunction) => {
     try {
         const header = req.headers.authorization;
-        
+
         if (!header || !header.startsWith("Bearer ")) {
             return res.status(401).json({ message: "로그인이 필요합니다." });
         }

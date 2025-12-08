@@ -7,15 +7,15 @@ const Mypick = () => {
   const [loading, setLoading] = useState(false);
 
   const getMypicks = async () => {
-      setLoading(true);
-      const { data } = await getMypickApi();
-      setMypicks(data.data);
-      setLoading(false);
-    };
+    setLoading(true);
+    const { data } = await getMypickApi();
+    setMypicks(data.data);
+    setLoading(false);
+  };
 
-    useEffect(()=>{
-      getMypicks();
-    }, [])
+  useEffect(() => {
+    getMypicks();
+  }, [])
 
   return (
     <>

@@ -10,35 +10,35 @@ class Mypick extends Model {
 
     public Movie!: Movie;
 
-    static initModel(sequelize : Sequelize) {
+    static initModel(sequelize: Sequelize) {
         Mypick.init(
             {
-                id : {
+                id: {
                     type: DataTypes.INTEGER.UNSIGNED,
-                    primaryKey : true,
+                    primaryKey: true,
                     autoIncrement: true
                 },
-                user_id : {
+                user_id: {
                     type: DataTypes.INTEGER.UNSIGNED,
                     allowNull: false
                 },
-                movie_id : {
+                movie_id: {
                     type: DataTypes.INTEGER.UNSIGNED,
                     allowNull: false
                 },
-                is_watched : {
+                is_watched: {
                     type: DataTypes.BOOLEAN,
                     defaultValue: false
                 },
-                memo : {
+                memo: {
                     type: DataTypes.STRING(500),
                 }
             },
             {
                 sequelize,
-                modelName : "Mypick",
-                tableName : "mypicks",
-                timestamps : false
+                modelName: "Mypick",
+                tableName: "mypicks",
+                timestamps: false
             }
         );
     }

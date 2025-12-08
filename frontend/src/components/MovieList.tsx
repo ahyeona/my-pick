@@ -24,31 +24,31 @@ const CaptionStyle = styled.p`
     text-align: left;
 `
 
-const MovieList = ({movies, caption} : {movies : MovieType[], caption : string}) => {
+const MovieList = ({ movies, caption }: { movies: MovieType[], caption: string }) => {
     const [selectedMovie, setSelectedMovie] = useState<MovieType | null>(null);
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log(movies)
-    },[]);
+    }, []);
 
     return (
         <>
             <MovieListContainer>
                 <CaptionStyle>{caption}</CaptionStyle>
-                <div style={{"display":'flex'}}>
-                    {movies.map((movie : MovieType) => {
-                        return <Movie movie={movie}  onClick={() => setSelectedMovie(movie)} />
+                <div style={{ "display": 'flex' }}>
+                    {movies.map((movie: MovieType) => {
+                        return <Movie movie={movie} onClick={() => setSelectedMovie(movie)} />
                     })}
                 </div>
             </MovieListContainer>
 
             {
                 selectedMovie && (
-                    <MovieModal movie={selectedMovie} onClose={()=> {setSelectedMovie(null)}} />
+                    <MovieModal movie={selectedMovie} onClose={() => { setSelectedMovie(null) }} />
                 )
             }
         </>
-        
+
     )
 }
 

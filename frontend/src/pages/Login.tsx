@@ -9,7 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const nav = useNavigate(); 
+  const nav = useNavigate();
 
   const login = async () => {
     // ----------if 조건 수정필요---------
@@ -20,9 +20,9 @@ const Login = () => {
       console.log(data)
       setAuth(data.user, data.accessToken);
       nav("/");
-    } catch (error : any) {
-        console.log(error)
-        alert(error.response.data.message);
+    } catch (error: any) {
+      console.log(error)
+      alert(error.response.data.message);
     }
   }
 
@@ -31,8 +31,8 @@ const Login = () => {
   }
 
   return (
-    <div style={{"textAlign":"center"}}>
-      <Input placeholder='Email' onChange={setEmail}/>
+    <div style={{ "textAlign": "center" }}>
+      <Input placeholder='Email' onChange={setEmail} />
       <Input password={true} placeholder='Password' onChange={setPassword} />
       <Button text='로그인' onClick={login} />
       <Button text='회원가입' onClick={gotoSignup} />

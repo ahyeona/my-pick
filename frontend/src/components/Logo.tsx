@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const LogoStyle = styled.div`
   height: 3rem;
-  color: ${({theme}) => theme.textPrimary};
+  color: ${({ theme }) => theme.textPrimary};
   font-weight: bold;
   font-size: 20px;
   display: flex;
@@ -15,15 +15,15 @@ const LogoStyle = styled.div`
 `
 
 const Logo = () => {
-    const nav = useNavigate();
+  const nav = useNavigate();
 
-    const onClick = () => {
-        nav("/");
-    }
+  const onClick = () => {
+    nav("/");
+  }
 
-    return (
-        <LogoStyle onClick={onClick}>MyPick</LogoStyle>
-    )
+  return (
+    <LogoStyle onClick={onClick}>MyPick</LogoStyle>
+  )
 }
 
 export default Logo

@@ -15,10 +15,10 @@ const App = () => {
       try {
         const { data } = await refreshApi();
         useAuthStore.getState().setAccessToken(data.accessToken);
-        
+
         const user = await profileApi();
         useAuthStore.getState().setUser(user.data.user);
-        
+
         console.log("app.tsx")
       } catch (err) {
         console.log("자동 로그인 실패");
@@ -29,9 +29,9 @@ const App = () => {
 
   return (
     <>
-        <ThemeProvider theme={themeName === "light" ? lightTheme : darkTheme}>
-          <Router />
-        </ThemeProvider>
+      <ThemeProvider theme={themeName === "light" ? lightTheme : darkTheme}>
+        <Router />
+      </ThemeProvider>
     </>
   )
 }

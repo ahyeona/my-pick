@@ -8,18 +8,18 @@ const GenreListContainer = styled.div`
   width: 100vw;
 `
 type GenreListProps = {
-  genres : GenreType[];
-  setGenre : Dispatch<SetStateAction<GenreType>>;
+  genres: GenreType[];
+  setGenre: Dispatch<SetStateAction<GenreType>>;
 }
 
-const GenreList = ({ genres, setGenre} : GenreListProps ) => {
+const GenreList = ({ genres, setGenre }: GenreListProps) => {
   return (
     <GenreListContainer>
-      <div style={{"display":'flex'}}>
-            {genres.map((genre : GenreType, idx:number) => {
-                return <Genre genre={genre} setGenre={setGenre} key={idx} />
-            })}
-        </div>
+      <div style={{ "display": 'flex' }}>
+        {genres.map((genre: GenreType, idx: number) => {
+          return <Genre genre={genre} setGenre={setGenre} key={idx} />
+        })}
+      </div>
     </GenreListContainer>
   )
 }

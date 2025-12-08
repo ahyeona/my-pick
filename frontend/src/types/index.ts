@@ -3,13 +3,13 @@ export type MovieType = {
     imgUrl?: string;
     title?: string;
     adult?: boolean;
-    genre_ids?:number[];
-    genres?:string[];
-    original_language?:string;
-    original_title?:string;
-    overview?:string;
-    release_date?:string;
-    poster_path?:string;
+    genre_ids?: number[];
+    genres?: string[];
+    original_language?: string;
+    original_title?: string;
+    overview?: string;
+    release_date?: string;
+    poster_path?: string;
 }
 
 export type GenreType = {
@@ -19,18 +19,18 @@ export type GenreType = {
 
 export type MypickType = {
     movie?: {
-        id?:number;
-        title?:string;
-        poster_path?:string;
-        overview?:string;
-        release_date?:string;
-        genre_ids?:number[];
-    
+        id?: number;
+        title?: string;
+        poster_path?: string;
+        overview?: string;
+        release_date?: string;
+        genre_ids?: number[];
+
         adult?: boolean;
-        original_language?:string;
-        original_title?:string;
+        original_language?: string;
+        original_title?: string;
     }
-    id?:number;
+    id?: number;
     is_watched?: boolean;
-    memo?:string;
+    memo?: string;
 }

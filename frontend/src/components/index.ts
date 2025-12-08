@@ -11,4 +11,4 @@ import MovieList from "./MovieList";
 import Genre from "./Genre";
 import GenreList from "./GenreList";
 
-export  { Button, Input, Modal, Nav, SearchBar, ThemeToggle, Logo, Movie, Loading, MovieList, Genre, GenreList }
+export { Button, Input, Modal, Nav, SearchBar, ThemeToggle, Logo, Movie, Loading, MovieList, Genre, GenreList }

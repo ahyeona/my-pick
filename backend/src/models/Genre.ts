@@ -3,24 +3,24 @@ import { DataTypes, Model, Sequelize } from "sequelize";
 class Genre extends Model {
     public id!: number;
     public name!: string;
-    
-    static initModel(sequelize : Sequelize) {
+
+    static initModel(sequelize: Sequelize) {
         Genre.init(
             {
-                id : {
+                id: {
                     type: DataTypes.INTEGER.UNSIGNED,
-                    primaryKey : true
+                    primaryKey: true
                 },
-                name : {
+                name: {
                     type: DataTypes.STRING(100),
                     allowNull: false,
                 }
             },
             {
                 sequelize,
-                modelName : "Genre",
-                tableName : "genres",
-                timestamps : false
+                modelName: "Genre",
+                tableName: "genres",
+                timestamps: false
             }
         );
     }

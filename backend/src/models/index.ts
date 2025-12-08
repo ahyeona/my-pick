@@ -17,8 +17,8 @@ MovieGenre.initModel(sequelize);
 User.hasMany(Token, { foreignKey: "user_id", onDelete: "CASCADE" });
 Token.belongsTo(User, { foreignKey: "user_id", onDelete: "CASCADE" });
 
-Movie.belongsToMany(Genre, { through : MovieGenre, foreignKey : "movie_id" });
-Genre.belongsToMany(Movie, { through : MovieGenre, foreignKey : "genre_id" });
+Movie.belongsToMany(Genre, { through: MovieGenre, foreignKey: "movie_id" });
+Genre.belongsToMany(Movie, { through: MovieGenre, foreignKey: "genre_id" });
 
 User.hasMany(Mypick, { foreignKey: "user_id", onDelete: "CASCADE" });
 Mypick.belongsTo(User, { foreignKey: "user_id", onDelete: "CASCADE" });

@@ -5,7 +5,7 @@ import { imageConfig } from "../config/img";
 export const searchService = async (keyword: string) => {
     const url = `https://api.themoviedb.org/3/search/movie?query=${keyword}&include_adult=false&language=ko&page=1`;
     const { data } = await axios.get(url, {
-        headers : {
+        headers: {
             Accept: 'application/json',
             Authorization: `Bearer ${process.env.TMDB_API_ACCESS_TOKEN}`
         }
@@ -17,7 +17,7 @@ export const searchService = async (keyword: string) => {
 export const popularSearchService = async () => {
     const url = 'https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=1';
     const { data } = await axios.get(url, {
-        headers : {
+        headers: {
             Accept: 'application/json',
             Authorization: `Bearer ${process.env.TMDB_API_ACCESS_TOKEN}`
         }
@@ -32,7 +32,7 @@ export const genreSearchService = async (genres: string) => {
     // - : or  (id 숫자로)
     const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=ko-KR&page=1&sort_by=popularity.desc&with_genres=${genres}`;
     const { data } = await axios.get(url, {
-        headers : {
+        headers: {
             Accept: 'application/json',
             Authorization: `Bearer ${process.env.TMDB_API_ACCESS_TOKEN}`
         }
@@ -45,7 +45,7 @@ export const genreSearchService = async (genres: string) => {
 export const genreListService = async () => {
     const url = 'https://api.themoviedb.org/3/genre/movie/list?language=ko';
     const { data } = await axios.get(url, {
-        headers : {
+        headers: {
             Accept: 'application/json',
             Authorization: `Bearer ${process.env.TMDB_API_ACCESS_TOKEN}`
         }
@@ -56,7 +56,7 @@ export const genreListService = async () => {
 export const imgConfigService = async () => {
     const url = 'https://api.themoviedb.org/3/configuration';
     const { data } = await axios.get(url, {
-        headers : {
+        headers: {
             Accept: 'application/json',
             Authorization: `Bearer ${process.env.TMDB_API_ACCESS_TOKEN}`
         }
@@ -67,12 +67,12 @@ export const imgConfigService = async () => {
 export const detailService = async (id: string) => {
     const url = `https://api.themoviedb.org/3/movie/${id}?language=ko-KR`;
     const { data } = await axios.get(url, {
-        headers : {
+        headers: {
             Accept: 'application/json',
             Authorization: `Bearer ${process.env.TMDB_API_ACCESS_TOKEN}`
         }
     });
     data.imgUrl = data.poster_path ? imageConfig.baseUrl + imageConfig.size + data.poster_path : "";
-    
+
     return data;
 }

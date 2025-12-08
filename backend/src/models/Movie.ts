@@ -15,41 +15,41 @@ class Movie extends Model {
 
     public Genres!: Genre[];
 
-    static initModel(sequelize : Sequelize) {
+    static initModel(sequelize: Sequelize) {
         Movie.init(
             {
-                id : {
+                id: {
                     type: DataTypes.INTEGER.UNSIGNED,
-                    primaryKey : true,
+                    primaryKey: true,
                     autoIncrement: false
                 },
-                title : {
+                title: {
                     type: DataTypes.STRING(200),
                 },
-                poster_path : {
+                poster_path: {
                     type: DataTypes.STRING(500),
                 },
-                overview : {
+                overview: {
                     type: DataTypes.STRING(500),
                 },
-                release_date : {
+                release_date: {
                     type: DataTypes.STRING(200),
                 },
-                adult : {
+                adult: {
                     type: DataTypes.BOOLEAN,
                 },
-                original_language : {
+                original_language: {
                     type: DataTypes.STRING(100),
                 },
-                original_title : {
+                original_title: {
                     type: DataTypes.STRING(200),
                 }
             },
             {
                 sequelize,
-                modelName : "Movie",
-                tableName : "movies",
-                timestamps : false
+                modelName: "Movie",
+                tableName: "movies",
+                timestamps: false
             }
         );
     }

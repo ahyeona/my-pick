@@ -13,10 +13,10 @@ const NavStyle = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: ${({theme}) => theme.navBg};
+  background-color: ${({ theme }) => theme.navBg};
 `
 
-const Nav = ({children} : {children? : ReactNode}) => {
+const Nav = ({ children }: { children?: ReactNode }) => {
   const nav = useNavigate();
   const { user, clearAuth } = useAuthStore.getState();
 
@@ -24,13 +24,13 @@ const Nav = ({children} : {children? : ReactNode}) => {
     <NavStyle>
       <Logo />
       <ThemeToggle />
-      { user ? 
-        <Button text='logout' width='100px' onClick={()=>{ clearAuth() }} />
-         : 
-        <Button text='login' width='100px' onClick={()=>{nav("/login")}} />
+      {user ?
+        <Button text='logout' width='100px' onClick={() => { clearAuth() }} />
+        :
+        <Button text='login' width='100px' onClick={() => { nav("/login") }} />
       }
-      <Button text='mypick' width='100px' onClick={()=>{nav("/mypick")}} />
-      
+      <Button text='mypick' width='100px' onClick={() => { nav("/mypick") }} />
+
       {/* {children} */}
     </NavStyle>
   )

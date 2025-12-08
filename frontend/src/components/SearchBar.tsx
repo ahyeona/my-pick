@@ -14,15 +14,15 @@ const SearchBarStyle = styled.input`
 
 type SearchBarProps = {
   onChange: Dispatch<SetStateAction<string>>;
-  search: ()=>void;
+  search: () => void;
   placeholder?: string;
 }
 
-const SearchBar = ({ onChange, placeholder, search } : SearchBarProps) => {
+const SearchBar = ({ onChange, placeholder, search }: SearchBarProps) => {
   return (
     <SearchBarStyle
-      onChange={(e)=>onChange(e.target.value)}
-      onKeyDown={(e)=>{
+      onChange={(e) => onChange(e.target.value)}
+      onKeyDown={(e) => {
         if (e.code === 'Enter') search();
       }}
       placeholder={placeholder || '검색어를 입력하세요.'} />

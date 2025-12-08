@@ -10,13 +10,13 @@ const GenreContainer = styled.div`
 `
 
 type GenreProps = {
-  genre : GenreType;
-  setGenre : Dispatch<SetStateAction<GenreType>>;
+  genre: GenreType;
+  setGenre: Dispatch<SetStateAction<GenreType>>;
 }
 
-const Genre = ({genre, setGenre} : GenreProps) => {
+const Genre = ({ genre, setGenre }: GenreProps) => {
   return (
-    <GenreContainer onClick={()=>{setGenre(genre)}}>
+    <GenreContainer onClick={() => { setGenre(genre) }}>
       {genre.name}
     </GenreContainer>
   )

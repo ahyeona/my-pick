@@ -13,10 +13,10 @@ const Router = () => {
       <Nav />
       현재 유저 : {user?.email}
       <Routes>
-        <Route path='/' element={<Main />}/>
-        <Route path='/mypick' element={<AuthRoute><Mypick /></AuthRoute>}/>
-        <Route path='/signup' element={<Signup />}/>
-        <Route path='/login' element={<Login />}/>
+        <Route path='/' element={<Main />} />
+        <Route path='/mypick' element={<AuthRoute><Mypick /></AuthRoute>} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </BrowserRouter>
   )

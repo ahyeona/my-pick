@@ -61,14 +61,14 @@ const ThemeToggle = () => {
   return (
     <ToggleContainer>
       <CheckBox
-      type="checkbox"
-      checked={themeName==="dark" || false}
-      onChange={toggleTheme}
+        type="checkbox"
+        checked={themeName === "dark" || false}
+        onChange={toggleTheme}
       />
       <ToggleSlider />
     </ToggleContainer>
   )
 }
- 
+
 
 export default ThemeToggle

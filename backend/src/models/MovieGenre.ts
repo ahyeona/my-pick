@@ -7,14 +7,14 @@ class MovieGenre extends Model {
 
     public Genre!: Genre;
 
-    static initModel(sequelize : Sequelize) {
+    static initModel(sequelize: Sequelize) {
         MovieGenre.init(
             {},
             {
                 sequelize,
-                modelName : "MovieGenre",
-                tableName : "movie_genres",
-                timestamps : false
+                modelName: "MovieGenre",
+                tableName: "movie_genres",
+                timestamps: false
             }
         );
     }
