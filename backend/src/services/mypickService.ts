@@ -1,5 +1,5 @@
 import { imageConfig } from "../config/img";
-import { CreateMypickDTO } from "../dtos/mypick.dto";
+import { CreateMypickDTO, UpdateMypickDTO } from "../dtos/mypick.dto";
 import { Mypick, MovieGenre, Movie, Genre } from "../models";
 
 export const mypickListService = async (user_id: number) => {
@@ -64,8 +64,10 @@ export const mypickCreateService = async (dto: CreateMypickDTO) => {
     return mypick;
 };
 
-// UpdateMypickDTO
-export const mypickUpdateService = async (mypick_id: number, is_watched: boolean, memo: string) => {
+// export const mypickUpdateService = async (mypick_id: number, is_watched: boolean, memo: string) => {
+export const mypickUpdateService = async (dto: UpdateMypickDTO) => {
+    const { mypick_id, is_watched, memo } = dto;
+
     const updateData: Partial<Mypick> = {};
 
     if (is_watched !== undefined) updateData.is_watched = is_watched;

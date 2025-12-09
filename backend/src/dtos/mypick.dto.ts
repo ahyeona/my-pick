@@ -15,6 +15,8 @@ export interface CreateMypickDTO {
   memo: string;
 }
 
-// export interface UpdateMypickDTO {
-
-// }
+export interface UpdateMypickDTO {
+  mypick_id: number;
+  is_watched: boolean;
+  memo: string;
+}
