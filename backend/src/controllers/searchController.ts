@@ -1,10 +1,13 @@
 import { Request, Response } from "express";
 import { detailService, genreSearchService, popularSearchService, searchService } from "../services/searchService";
+import { MovieListDummy } from "../config/createTable";
 
 export const keywordSearchController = async (req: Request, res: Response) => {
     try {
-        const { keyword } = req.query as { keyword: string };
-        const data = await searchService(keyword);
+        const { keyword, pageNo } = req.query as unknown as { keyword: string, pageNo: number };
+        // const data = await searchService(keyword, pageNo);
+        const data = pageNo != 3 ? MovieListDummy : [];
+        console.log("keywordSearchController", pageNo, keyword);
 
         return res.status(200).json({ data });
     } catch (error: any) {
@@ -15,7 +18,11 @@ export const keywordSearchController = async (req: Request, res: Response) => {
 
 export const popularSearchController = async (req: Request, res: Response) => {
     try {
-        const data = await popularSearchService();
+        const { pageNo } = req.query as unknown as { pageNo: number };
+        // const data = await popularSearchService(pageNo);
+        const data = pageNo != 6 ? MovieListDummy : [];
+
+        console.log("popularSearchController", pageNo);
 
         return res.status(200).json({ data });
     } catch (error: any) {
@@ -26,8 +33,11 @@ export const popularSearchController = async (req: Request, res: Response) => {
 
 export const genreSearchController = async (req: Request, res: Response) => {
     try {
-        const { genres } = req.query as { genres: string };
-        const data = await genreSearchService(genres);
+        const { genres, pageNo } = req.query as unknown as { genres: string, pageNo: number };
+        // const data = await genreSearchService(genres, pageNo);
+        const data = pageNo != 4 ? MovieListDummy : [];
+
+        console.log("genreSearchController", pageNo, genres);
 
         return res.status(200).json({ data });
     } catch (error: any) {

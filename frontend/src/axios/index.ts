@@ -25,7 +25,8 @@ baseAxios.interceptors.response.use((res) => res, async (error) => {
   }
 
   if (error.response.data.message) {
-    alert(error.response.data.message);
+    console.log(error.response.data.message);
+    // alert(error.response.data.message);
   }
 });
 

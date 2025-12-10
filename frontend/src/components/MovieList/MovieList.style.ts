@@ -2,19 +2,21 @@ import styled from 'styled-components'
 import { MovieContainer } from '../Movie/Movie.style'
 
 export const MovieListContainer = styled.div`
-    border: 1px solid blue;
-    width: 100vw;
-    overflow: scroll;
+  border: 1px solid blue;
+  width: 100vw;
+  padding: 20px;
 
-    /* &>div {
-        
-    } */
+  overflow: visible;
 
-    & ${MovieContainer} {
-        background-color: aliceblue;
-        margin-inline: 20px;
-    }
-`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+  gap: 20px;
+
+  & ${MovieContainer} {
+    background-color: aliceblue;
+  }
+`;
+
 export const CaptionStyle = styled.p`
     font-size: 16px;
     font-weight: bold;

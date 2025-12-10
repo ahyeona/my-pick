@@ -26,13 +26,11 @@ const MovieList = ({ movies, caption }: { movies: MovieType[], caption: string }
 
     return (
         <>
+            <CaptionStyle>{caption}</CaptionStyle>
             <MovieListContainer>
-                <CaptionStyle>{caption}</CaptionStyle>
-                <div style={{ "display": 'flex' }}>
-                    {movies.map((movie: MovieType) => {
-                        return <Movie movie={movie} onClick={(movie) => { movieClick(movie) }} />
-                    })}
-                </div>
+                {movies.map((movie: MovieType) => {
+                    return <Movie movie={movie} onClick={(movie) => { movieClick(movie) }} />
+                })}
             </MovieListContainer>
 
             {

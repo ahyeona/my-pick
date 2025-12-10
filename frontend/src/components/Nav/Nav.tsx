@@ -14,7 +14,10 @@ const Nav = () => {
       <Logo />
       <ThemeToggle />
       {user ?
-        <Button text='logout' width='100px' onClick={() => { clearAuth() }} />
+        <>
+          <p>{user.email + "님"}</p>
+          <Button text='logout' width='100px' onClick={() => { clearAuth() }} />
+        </>
         :
         <Button text='login' width='100px' onClick={() => { nav("/login") }} />
       }

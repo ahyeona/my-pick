@@ -2,8 +2,8 @@
 import styled from "styled-components"
 
 export const GenreContainer = styled.div`
-  width: 140px;
+  width: 100px;
   background-color: gray;
-  border-radius: 20%;
+  border-radius: 20px;
   cursor: pointer;
 `

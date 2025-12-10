@@ -22,7 +22,6 @@ export const ModalContainer = styled.div`
 
   & img {
     width: 200px;
-    
   }
 `
 export const CloseBtn = styled.div`

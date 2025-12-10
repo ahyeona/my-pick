@@ -4,6 +4,7 @@ export const MypickListContainer = styled.div`
     border: 1px solid blue;
     width: 100vw;
     overflow: scroll;
+    display: flex;
 
     /* &>div {
         

@@ -11,5 +11,6 @@ import GenreList from "./GenreList/GenreList";
 import MypickList from "./MypickList/MypickList";
 import Nav from "./Nav/Nav";
 import ThemeToggle from "./ThemeToggle/ThemeToggle";
+import AuthForm from "./AuthForm/AuthForm";
 
-export { Button, Input, Modal, Nav, SearchBar, ThemeToggle, Logo, Movie, Loading, MovieList, Genre, GenreList, MypickList }
+export { Button, Input, Modal, Nav, SearchBar, ThemeToggle, Logo, Movie, Loading, MovieList, Genre, GenreList, MypickList, AuthForm }

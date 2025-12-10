@@ -24,29 +24,24 @@ const MypickList = ({ mypicks }: { mypicks: MypickType[] }) => {
         console.log(mypicks)
     }, []);
 
-
     return (
         <>
             <MypickListContainer>
                 <CaptionStyle>{"본 mypick 목록"}</CaptionStyle>
-                <div style={{ "display": 'flex' }}>
-                    {mypicks.map((mypick: MypickType) => {
-                        const { movie } = mypick;
-                        if (!mypick.is_watched) { return }
-                        return <Movie movie={movie} onClick={(movie) => { movieClick(movie) }} />
-                    })}
-                </div>
+                {mypicks.map((mypick: MypickType) => {
+                    const { movie } = mypick;
+                    if (!mypick.is_watched) { return }
+                    return <Movie movie={movie} onClick={(movie) => { movieClick(movie) }} />
+                })}
             </MypickListContainer>
 
             <MypickListContainer>
                 <CaptionStyle>{"볼 mypick 목록"}</CaptionStyle>
-                <div style={{ "display": 'flex' }}>
-                    {mypicks.map((mypick: MypickType) => {
-                        if (mypick.is_watched) { return }
-                        const { movie } = mypick;
-                        return <Movie movie={movie} onClick={(movie) => { movieClick(movie) }} />
-                    })}
-                </div>
+                {mypicks.map((mypick: MypickType) => {
+                    if (mypick.is_watched) { return }
+                    const { movie } = mypick;
+                    return <Movie movie={movie} onClick={(movie) => { movieClick(movie) }} />
+                })}
             </MypickListContainer>
 
             {

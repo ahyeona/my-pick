@@ -1,11 +1,11 @@
 import { baseAxios } from "../axios";
 
-interface authProps {
+export interface AuthProps {
     email: string;
     password: string;
 }
 
-export const loginApi = (data: authProps) => baseAxios.post("/auth/login", data);
-export const signupApi = (data: authProps) => baseAxios.post("/auth/signup", data);
+export const loginApi = (data: AuthProps) => baseAxios.post("/auth/login", data);
+export const signupApi = (data: AuthProps) => baseAxios.post("/auth/signup", data);
 export const refreshApi = () => baseAxios.get("/auth/refresh");
 export const profileApi = () => baseAxios.get("/auth/profile");
