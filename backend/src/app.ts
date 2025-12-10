@@ -4,7 +4,7 @@ import { router } from "./routes";
 import { sequelize } from "./models";
 import { corsOptions } from "./config/cors";
 import cookieParser from "cookie-parser";
-import { syncGenreService, syncImgConfigService } from "./services/syncService";
+import { syncImgConfigService } from "./services/syncService";
 
 const app = express();
 
