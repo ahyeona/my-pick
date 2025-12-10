@@ -15,7 +15,7 @@ const SearchBar = ({ onChange, placeholder, search }: SearchBarProps) => {
       onKeyDown={(e) => {
         if (e.code === 'Enter') search();
       }}
-      placeholder={placeholder || '검색어를 입력하세요.'} />
+      placeholder={placeholder || '검색어를 입력하세요!!!'} />
   )
 }
 
