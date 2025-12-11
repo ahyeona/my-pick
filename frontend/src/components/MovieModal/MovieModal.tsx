@@ -30,7 +30,7 @@ const MovieModal = ({ movie, onClose }: MovieModalProps) => {
       onClose();
     } catch (error) {
       console.log(error);
-      alert("");
+      alert("실패했습니다.");
     }
   }
 
@@ -58,7 +58,7 @@ const MovieModal = ({ movie, onClose }: MovieModalProps) => {
       onClose();
     } catch (error) {
       console.log(error);
-      alert("");
+      alert("실패했습니다.");
     }
   }
 
@@ -76,7 +76,7 @@ const MovieModal = ({ movie, onClose }: MovieModalProps) => {
       onClose();
     } catch (error) {
       console.log(error);
-      alert("");
+      alert("실패했습니다.");
     }
   }
 

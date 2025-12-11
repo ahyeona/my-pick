@@ -16,7 +16,6 @@ const Main = () => {
   const [keywordPage, setKeywordPage] = useState(1);
   const [genrePage, setGenrePage] = useState(1);
 
-  // popular : 인기 영화, keyword : 검색 결과, genre : 장르 검색결과
   const [mode, setMode] = useState<"popular" | "keyword" | "genre">("popular");
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);

@@ -10,7 +10,7 @@ import { Movie } from '../Movie/Movie'
 const MovieList = ({ movies, caption }: { movies: MovieType[], caption: string }) => {
     const [selectedMovie, setSelectedMovie] = useState<MovieType | null>(null);
 
-    const user = useAuthStore.getState().user;
+    const user = useAuthStore().user;
     const nav = useNavigate();
 
     const movieClick = (movie: MovieType) => {

@@ -12,6 +12,7 @@ export const mypickListService = async (user_id: number) => {
 
     const result = list.map(item => {
         const mypick = item.get({ plain: true });
+        const genreNames = mypick.Movie.Genres ? mypick.Movie.Genres.map((g: any) => g.name) : [];
 
         return {
             id: mypick.id,
@@ -19,6 +20,7 @@ export const mypickListService = async (user_id: number) => {
             is_watched: mypick.is_watched,
             movie: {
                 ...mypick.Movie,
+                genres: genreNames,
                 imgUrl: mypick.Movie.poster_path ? imageConfig.baseUrl + imageConfig.size + mypick.Movie.poster_path : ""
             }
         }

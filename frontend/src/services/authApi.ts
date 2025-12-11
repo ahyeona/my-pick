@@ -9,3 +9,4 @@ export const loginApi = (data: AuthProps) => baseAxios.post("/auth/login", data)
 export const signupApi = (data: AuthProps) => baseAxios.post("/auth/signup", data);
 export const refreshApi = () => baseAxios.get("/auth/refresh");
 export const profileApi = () => baseAxios.get("/auth/profile");
+export const logoutApi = () => baseAxios.post("/auth/logout");

@@ -20,46 +20,14 @@ baseAxios.interceptors.request.use((config) => {
 baseAxios.interceptors.response.use((res) => res, async (error) => {
   console.log("error", error);
 
-  if (error.response?.status === 401) {
-    alert("로그인이 필요합니다.");
-  }
-
   if (error.response.data.message) {
+    const requestUrl = error.config?.url;
+    if (requestUrl && requestUrl.includes("/refresh")) {
+      return Promise.reject(error);
+    }
     console.log(error.response.data.message);
-    // alert(error.response.data.message);
+    alert(error.response.data.message);
   }
 });
-
-
-// baseAxios.interceptors.response.use(
-//   (res) => res,
-//   async (error) => {
-//     console.log("baseAxios.interceptors.response");
-
-//     const originalRequest = error.config;
-
-//     if (error.response?.status === 401 && !originalRequest._retry) {
-//       originalRequest._retry = true;
-
-//       try {
-//         const res = await axios.post(
-//           `${baseURL}/auth/refresh`,
-//           {},
-//           { withCredentials: true }
-//         );
-
-//         useAuthStore.getState().setAccessToken(res.data.accessToken);
-//         originalRequest.headers.Authorization = `Bearer ${res.data.accessToken}`;
-
-//         return axios(originalRequest);
-//       } catch (err) {
-//         useAuthStore.getState().clearAuth();
-//         window.location.href = "/login";
-//       }
-//     }
-
-//     return Promise.reject(error);
-//   }
-// );
 
 export { baseAxios }

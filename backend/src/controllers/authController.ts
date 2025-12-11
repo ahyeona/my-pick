@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { loginService, profileService, refreshAccessToken, signupService } from "../services/authService";
 import { RequestWithUser } from "../types/express";
+import { Token } from "../models";
 
 export const signupController = async (req: Request, res: Response) => {
     try {
@@ -30,9 +31,7 @@ export const loginController = async (req: Request, res: Response) => {
 
 export const refreshController = async (req: Request, res: Response) => {
     try {
-        console.log("refreshController", refreshController);
         const { refreshToken } = req.cookies;
-        console.log("refreshToken", refreshToken);
         const accessToken = await refreshAccessToken(refreshToken);
 
         return res.status(200).json({ message: "accessToken 발급", accessToken });
@@ -52,5 +51,28 @@ export const profileController = async (req: RequestWithUser, res: Response) => 
         return res.status(200).json({ message: "user profile", user });
     } catch (error: any) {
         return res.status(400).json({ message: "로그인하세요." })
+    }
+}
+
+
+export const logoutController = async (req: RequestWithUser, res: Response) => {
+    try {
+        const { refreshToken } = req.cookies;
+
+        if (refreshToken) {
+            await Token.destroy({ where: { refresh_token: refreshToken } });
+        }
+
+        res.clearCookie("refreshToken", {
+            httpOnly: true,
+            secure: false,
+            sameSite: "strict",
+            path: "/",
+        });
+
+        return res.status(200).json({ message: "로그아웃 성공" });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "로그아웃 실패" });
     }
 }

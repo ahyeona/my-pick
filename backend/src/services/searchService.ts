@@ -28,8 +28,6 @@ export const popularSearchService = async (pageNo: number) => {
 
 // 장르별영화
 export const genreSearchService = async (genres: string, pageNo: number) => {
-    // , : and
-    // - : or  (id 숫자로)
     const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=ko-KR&page=${pageNo}&sort_by=popularity.desc&with_genres=${genres}`;
     const { data } = await axios.get(url, {
         headers: {

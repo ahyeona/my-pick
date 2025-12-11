@@ -18,7 +18,6 @@ const App = () => {
       const user = await profileApi();
       useAuthStore.getState().setUser(user.data.user);
 
-      console.log("app.tsx")
     } catch (err) {
       console.log("자동 로그인 실패");
     }
