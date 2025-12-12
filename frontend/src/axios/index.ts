@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useAuthStore } from "../store/authStore";
 
-const baseURL = "https://mypick-mncg.onrender.com:8080"
+const baseURL = "https://mypick-mncg.onrender.com"
 
 const baseAxios = axios.create({
   baseURL,
