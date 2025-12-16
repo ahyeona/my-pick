@@ -8,10 +8,9 @@ export const spin = keyframes`
 
 export const Overlay = styled.div`
   position: fixed;
-  top: 3rem; 
   left: 0;
   width: 100vw;
-  height: calc(100vh - 3rem);
+  height: 100vh;
 
   background-color: ${({ theme }) => theme.bgOverlay};
   backdrop-filter: blur(2px);
