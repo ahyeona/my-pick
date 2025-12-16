@@ -161,5 +161,5 @@
 
 **개발자:** 김아현  
 📧 Email: [ahhyeon741@gmail.com](mailto:ahhyeon741@gmail.com)  
-🌐 Portfolio: [https://ahyeona.github.io/portfolio-2023/](https://ahyeona.github.io/portfolio-2023/)  
+🌐 Portfolio: [https://portfolio-2025-1-eight.vercel.app/](https://portfolio-2025-1-eight.vercel.app/)  
 💻 GitHub: [github.com/ahyeona](https://github.com/ahyeona)

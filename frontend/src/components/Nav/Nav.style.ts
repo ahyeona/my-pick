@@ -9,6 +9,7 @@ export const NavStyle = styled.div`
   justify-content: space-between;
   gap: 8px;
   align-items: center;
+  box-sizing: border-box;
 
   background-color: ${({ theme }) => theme.navBg};
 
