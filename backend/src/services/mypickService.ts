@@ -66,7 +66,6 @@ export const mypickCreateService = async (dto: CreateMypickDTO) => {
     return mypick;
 };
 
-// export const mypickUpdateService = async (mypick_id: number, is_watched: boolean, memo: string) => {
 export const mypickUpdateService = async (dto: UpdateMypickDTO) => {
     const { mypick_id, is_watched, memo } = dto;
 

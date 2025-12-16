@@ -122,7 +122,6 @@ const Main = () => {
 
   useEffect(() => {
     if (!genre.id) return;
-    console.log("genre", genre);
     getGenreMovies(1);
   }, [genre]);
 
@@ -140,11 +139,13 @@ const Main = () => {
               : `${genre.name} 영화 목록`
         }
         movies={
-          mode === "popular"
-            ? popularMovies
-            : mode === "keyword"
-              ? keywordMovies
-              : genreMovies
+          loading === true ? []
+            :
+            mode === "popular"
+              ? popularMovies
+              : mode === "keyword"
+                ? keywordMovies
+                : genreMovies
         }
       />
 

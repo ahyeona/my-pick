@@ -6,7 +6,6 @@ import { useAuthStore } from '../../store/authStore'
 import { CaptionStyle, MovieListContainer } from './MovieList.style'
 import { Movie } from '../Movie/Movie'
 
-
 const MovieList = ({ movies, caption }: { movies: MovieType[], caption: string }) => {
     const [selectedMovie, setSelectedMovie] = useState<MovieType | null>(null);
 
@@ -19,10 +18,6 @@ const MovieList = ({ movies, caption }: { movies: MovieType[], caption: string }
         }
         setSelectedMovie(movie);
     }
-
-    useEffect(() => {
-        console.log(movies)
-    }, []);
 
     return (
         <>

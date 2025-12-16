@@ -26,11 +26,9 @@ const MovieModal = ({ movie, onClose, refresh }: MovieModalProps) => {
   const addMypick = async () => {
     try {
       const { data } = await addMypickApi({ movie, is_watched: isWatched, memo });
-      console.log(data);
       alert("추가되었습니다.");
       onClose();
     } catch (error) {
-      console.log(error);
       alert("실패했습니다.");
     }
   }
@@ -54,12 +52,10 @@ const MovieModal = ({ movie, onClose, refresh }: MovieModalProps) => {
 
     try {
       const { data } = await updateMypickApi({ mypick_id: mypickDetail.mypick.id, is_watched: updateDto.isWatched, memo: updateDto.memo });
-      console.log(data);
-      alert("수정되었습니다.");
+      if (data) alert("수정되었습니다.");
       if (refresh) refresh();
       onClose();
     } catch (error) {
-      console.log(error);
       alert("실패했습니다.");
     }
   }
@@ -73,12 +69,10 @@ const MovieModal = ({ movie, onClose, refresh }: MovieModalProps) => {
         mypick_id: mypickDetail.mypick.id
       }
       const { data } = await deleteMypickApi(props);
-      console.log(data?.data);
-      alert("삭제되었습니다.");
+      if (data) alert("삭제되었습니다.");
       if (refresh) refresh();
       onClose();
     } catch (error) {
-      console.log(error);
       alert("실패했습니다.");
     }
   }
@@ -91,7 +85,6 @@ const MovieModal = ({ movie, onClose, refresh }: MovieModalProps) => {
     setLoading(true);
     const { data } = await getMypickDetailkApi(props);
     setLoading(false);
-    console.log(data?.data);
     if (data?.data) {
       setMypickDetail(data?.data);
       setIsWatched(data?.data.mypick.is_watched);
@@ -100,7 +93,6 @@ const MovieModal = ({ movie, onClose, refresh }: MovieModalProps) => {
   }
 
   useEffect(() => {
-    console.log("movie", movie);
     getMypickDetail();
   }, []);
 

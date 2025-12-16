@@ -6,6 +6,7 @@ import { darkTheme, lightTheme } from './styles/theme';
 import { useAuthStore } from './store/authStore';
 import { useEffect } from 'react';
 import { profileApi, refreshApi } from './services/authApi';
+import { GlobalStyle } from './styles/GlobalStyle';
 
 const App = () => {
   const { themeName } = useTheme();
@@ -19,7 +20,6 @@ const App = () => {
       useAuthStore.getState().setUser(user.data.user);
 
     } catch (err) {
-      console.log("자동 로그인 실패");
     }
   };
 
@@ -30,6 +30,7 @@ const App = () => {
   return (
     <>
       <ThemeProvider theme={themeName === "light" ? lightTheme : darkTheme}>
+        <GlobalStyle />
         <Router />
       </ThemeProvider>
     </>

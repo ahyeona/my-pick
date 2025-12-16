@@ -46,8 +46,6 @@ export const mypickUpdateController = async (req: RequestWithUser, res: Response
     try {
         const dto: UpdateMypickDTO = { ...req.body };
         const data = await mypickUpdateService(dto);
-        // const { mypick_id, is_watched, memo } = req.body;
-        // const result = await mypickUpdateService(mypick_id, is_watched, memo);
 
         return res.status(200).json({ data });
     } catch (error: any) {

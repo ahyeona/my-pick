@@ -9,11 +9,9 @@ const Signup = () => {
   const signupHandler = async (props: AuthProps) => {
     try {
       const { data } = await signupApi(props);
-      console.log("signup 응답", data)
-      alert("가입되었습니다.");
+      if (data) alert("가입되었습니다.");
       nav("/login");
     } catch (error: any) {
-      console.log(error)
       alert(error.response.data.message);
     }
   }
