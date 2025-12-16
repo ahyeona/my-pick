@@ -26,7 +26,7 @@ const MovieModal = ({ movie, onClose, refresh }: MovieModalProps) => {
   const addMypick = async () => {
     try {
       const { data } = await addMypickApi({ movie, is_watched: isWatched, memo });
-      alert("추가되었습니다.");
+      if (data) alert("추가되었습니다.");
       onClose();
     } catch (error) {
       alert("실패했습니다.");

@@ -1,5 +1,5 @@
 import type { MovieType } from '../../types'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import MovieModal from '../MovieModal/MovieModal'
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../../store/authStore'
