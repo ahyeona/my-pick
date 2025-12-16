@@ -50,17 +50,17 @@
 
 ### 플로우차트
 
-![mypick.drawio.png](1a9e3c78-7d02-434c-89e9-9aab3fd863dc.png)
+![mypick.drawio.png](flowchart.png)
 
 ### 와이어프레임
 
-![mypick_와이어프레임_gpt.png](mypick_%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84_gpt.png)
+![mypick_와이어프레임.png](wireframe.png)
 
 ---
 
 ## 🧠 4. 데이터베이스 설계 (초안 ERD)
 
-![image.png](image.png)
+![erd.png](erd.png)
 
 ---
 
@@ -161,5 +161,5 @@
 
 **개발자:** 김아현  
 📧 Email: [ahhyeon741@gmail.com](mailto:ahhyeon741@gmail.com)  
-🌐 Portfolio: [https://ahyeona.github.io/portfolio-2023/](https://ahyeona.github.io/portfolio-2023/)
+🌐 Portfolio: [https://ahyeona.github.io/portfolio-2023/](https://ahyeona.github.io/portfolio-2023/)  
 💻 GitHub: [github.com/ahyeona](https://github.com/ahyeona)
