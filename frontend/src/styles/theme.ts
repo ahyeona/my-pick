@@ -5,7 +5,7 @@ export const lightTheme: DefaultTheme = {
   textPrimary: "#1A1A1A",
   text: "#555555",
 
-  buttonBg: "#F5F5F5",
+  buttonBg: "#d8d8d8ff",
   buttonText: "#000000",
 
   navBg: "#E0E0E0",

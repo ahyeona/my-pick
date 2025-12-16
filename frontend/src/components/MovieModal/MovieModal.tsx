@@ -3,7 +3,7 @@ import { addMypickApi, deleteMypickApi, getMypickDetailkApi, updateMypickApi } f
 import { useEffect, useState } from "react";
 import Loading from "../Loading/Loading";
 import AuthRoute from "../../router/AuthRoute";
-import { ButtonFlexDiv, CloseBtn, GenreName, ModalContainer, MovieDetail, MypickDetail, Overlay, Overview, Title } from "./MovieModal.style";
+import { ButtonFlexDiv, CloseBtn, ContentWrapper, GenreName, ImageWrapper, ModalContainer, MovieDetail, MypickDetail, Overlay, Overview, Title } from "./MovieModal.style";
 import Button from "../Button/Button";
 
 type MovieModalProps = {
@@ -104,10 +104,10 @@ const MovieModal = ({ movie, onClose, refresh }: MovieModalProps) => {
             {loading && <Loading />}
 
             <CloseBtn onClick={onClose}>X</CloseBtn>
-            <div style={{ display: "flex" }}>
-              <div style={{ marginRight: "10px", display: "flex", alignItems: "center" }}>
+            <ContentWrapper>
+              <ImageWrapper>
                 <img src={movie.imgUrl} />
-              </div>
+              </ImageWrapper>
               <MovieDetail>
                 <Title>{movie.title}</Title>
                 <div>{movie.genres?.map((genre) => { return <GenreName>{genre}</GenreName> })}</div>
@@ -137,7 +137,7 @@ const MovieModal = ({ movie, onClose, refresh }: MovieModalProps) => {
                   )
                 }
               </MovieDetail>
-            </div>
+            </ContentWrapper>
           </>
         </AuthRoute>
       </ModalContainer>

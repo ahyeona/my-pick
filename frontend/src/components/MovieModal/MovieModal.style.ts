@@ -72,6 +72,7 @@ export const MypickDetail = styled.div`
 export const MovieDetail = styled.div`
   align-self: center;
   width: 100%;
+  overflow-wrap: break-word;
 `
 export const ButtonFlexDiv = styled.div`
   display: flex;
@@ -81,11 +82,43 @@ export const ButtonFlexDiv = styled.div`
   }
 `
 
+export const ContentWrapper = styled.div`
+  display: flex;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 200px;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      width: 150px;
+    }
+  }
+`;
+
 export const ModalContainer = styled.div`
   padding: 20px;
   background-color: #ffffff;
   width: 50vw;
+  max-width: 700px;
   height: fit-content;
+  max-height: 90vh;
+  overflow-y: auto;
+
   border-radius: 20px;
   position: absolute;
   z-index: 100;
@@ -97,5 +130,10 @@ export const ModalContainer = styled.div`
   & ${ButtonStyle} {
     width: 100px;
     color:white;
+  }
+
+  @media (max-width: 768px) {
+    width: 90vw;
+    padding: 16px;
   }
 `
