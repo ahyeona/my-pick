@@ -17,7 +17,9 @@ export const lightTheme: DefaultTheme = {
   inputFocusBg: "#fff",
 
   primary: "#3b82f6",
-  primaryShadow: "rgba(59, 130, 246, 0.3)"
+  primaryShadow: "rgba(59, 130, 246, 0.3)",
+
+  bgOverlay: "rgba(255, 255, 255, 0.6)",
 
 };
 
@@ -38,5 +40,7 @@ export const darkTheme: DefaultTheme = {
   inputFocusBg: "#0D1117",
 
   primary: "#3b82f6",
-  primaryShadow: "rgba(59, 130, 246, 0.5)"
+  primaryShadow: "rgba(59, 130, 246, 0.5)",
+
+  bgOverlay: "rgba(0, 0, 0, 0.45)",
 }

@@ -1,8 +1,10 @@
-import { LoadingContainer } from "./Loading.style"
+import { LoadingContainer, Overlay } from "./Loading.style"
 
 const Loading = () => {
   return (
-    <LoadingContainer />
+    <Overlay>
+      <LoadingContainer />
+    </Overlay>
   )
 }
 

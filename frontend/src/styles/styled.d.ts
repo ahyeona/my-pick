@@ -17,5 +17,6 @@ declare module "styled-components" {
     inputFocusBg: string;
     primary: string;
     primaryShadow: string;
+    bgOverlay: string;
   }
 }

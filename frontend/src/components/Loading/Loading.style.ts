@@ -6,6 +6,23 @@ export const spin = keyframes`
   }
 `;
 
+export const Overlay = styled.div`
+  position: fixed;
+  top: 3rem; 
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 3rem);
+
+  background-color: ${({ theme }) => theme.bgOverlay};
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+`;
+
 export const LoadingContainer = styled.div`
   width: 40px;
   height: 40px;

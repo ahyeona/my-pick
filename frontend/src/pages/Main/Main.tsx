@@ -130,6 +130,8 @@ const Main = () => {
       <SearchBar onChange={setKeyword} search={() => { getKeywordMovies(1) }} />
       <GenreList genres={genreList} setGenre={setGenre} />
 
+      {loading && <Loading />}
+
       <MovieList
         caption={
           mode === "popular"
@@ -139,17 +141,13 @@ const Main = () => {
               : `${genre.name} 영화 목록`
         }
         movies={
-          loading === true ? []
-            :
-            mode === "popular"
-              ? popularMovies
-              : mode === "keyword"
-                ? keywordMovies
-                : genreMovies
+          mode === "popular"
+            ? popularMovies
+            : mode === "keyword"
+              ? keywordMovies
+              : genreMovies
         }
       />
-
-      {loading && <Loading />}
 
       {!loading && hasMore && (
         <Button onClick={loadMore} text='더보기' />
