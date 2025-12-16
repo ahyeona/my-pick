@@ -13,4 +13,8 @@ export const MainContainer = styled.div`
     & ${ButtonStyle} {
         margin: auto;
     }
+
+    & > ${ButtonStyle} {
+        margin-top: 20px;
+  }
 `

@@ -112,7 +112,8 @@ export const ImageWrapper = styled.div`
 
 export const ModalContainer = styled.div`
   padding: 20px;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.navBg};
+  color:  ${({ theme }) => theme.textPrimary};
   width: 50vw;
   max-width: 700px;
   height: fit-content;

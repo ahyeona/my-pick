@@ -23,17 +23,23 @@ const Main = () => {
   const getPopularMovies = async (pageNo: number) => {
     setLoading(true);
     const { data } = await popularApi(pageNo);
-    if (pageNo === 1) {
-      setPopularMovies(data.data);
-    } else {
-      setPopularMovies([...popularMovies, ...data.data]);
+    const movies = data?.data || [];
+
+    if (pageNo === 1 && movies.length === 0) {
+      alert("데이터가 없습니다.");
+      setPopularMovies([]);
+      setHasMore(false);
+      setLoading(false);
+      return;
     }
 
-    if (data.data.length === 0) {
-      setHasMore(false);
+    if (pageNo === 1) {
+      setPopularMovies(movies);
     } else {
-      setHasMore(true);
+      setPopularMovies([...popularMovies, ...movies]);
     }
+
+    setHasMore(movies.length > 0);
 
     setMode("popular");
     setLoading(false);
@@ -46,18 +52,23 @@ const Main = () => {
     }
     setLoading(true);
     const { data } = await keywordApi(keyword, pageNo);
+    const movies = data?.data || [];
+
+    if (pageNo === 1 && movies.length === 0) {
+      alert("검색 결과가 없습니다.");
+      setKeywordMovies([]);
+      setHasMore(false);
+      setLoading(false);
+      return;
+    }
 
     if (pageNo === 1) {
-      setKeywordMovies(data.data);
+      setKeywordMovies(movies);
     } else {
-      setKeywordMovies([...keywordMovies, ...data.data]);
+      setKeywordMovies([...keywordMovies, ...movies]);
     }
 
-    if (data.data.length === 0) {
-      setHasMore(false);
-    } else {
-      setHasMore(true);
-    }
+    setHasMore(movies.length > 0);
 
     setMode("keyword");
     setLoading(false);
@@ -67,18 +78,23 @@ const Main = () => {
     if (!genre.id) return;
     setLoading(true);
     const { data } = await genreMovieApi(genre.id, pageNo);
+    const movies = data?.data || [];
+
+    if (pageNo === 1 && movies.length === 0) {
+      alert("해당 장르의 영화가 없습니다.");
+      setGenreMovies([]);
+      setHasMore(false);
+      setLoading(false);
+      return;
+    }
 
     if (pageNo === 1) {
-      setGenreMovies(data.data);
+      setGenreMovies(movies);
     } else {
-      setGenreMovies([...genreMovies, ...data.data]);
+      setGenreMovies([...genreMovies, ...movies]);
     }
 
-    if (data.data.length === 0) {
-      setHasMore(false);
-    } else {
-      setHasMore(true);
-    }
+    setHasMore(movies.length > 0);
 
     setMode("genre");
     setLoading(false);
@@ -86,7 +102,7 @@ const Main = () => {
 
   const getGenres = async () => {
     const { data } = await genreApi();
-    setGenreList(data.data.genres);
+    setGenreList(data?.data?.genres || []);
   }
 
   const loadMore = () => {
